@@ -33,13 +33,16 @@ function displayBook() {
     bookId.textContent = `ID: ${book.id}`;
 
     const bookAuthor = document.createElement("p");
-    bookAuthor.textContent = `Author: ${book.author}`;
+    bookAuthor.textContent = `${book.author}`;
 
     const bookPage = document.createElement("p");
-    bookPage.textContent = `Page: ${book.page}`;
+    bookPage.textContent = `${book.page} pages`;
 
     const bookRead = document.createElement("p");
-    bookRead.textContent = `Status: ${book.read ? "Already read" : "Unread"}`;
+    bookRead.textContent = `${book.read ? "Already read" : "Unread"}`;
+
+    const btnArea = document.createElement("div");
+    btnArea.setAttribute("class", "btn-area");
 
     const toggleRead = document.createElement("button");
     toggleRead.setAttribute("class", "toggle-btn");
@@ -58,12 +61,12 @@ function displayBook() {
     });
 
     bookCard.appendChild(bookName);
-    bookCard.appendChild(bookId);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPage);
     bookCard.appendChild(bookRead);
-    bookCard.appendChild(toggleRead);
-    bookCard.appendChild(deleteBook);
+    bookCard.appendChild(btnArea);
+    btnArea.appendChild(toggleRead);
+    btnArea.appendChild(deleteBook);
   }
 }
 
@@ -74,7 +77,7 @@ myLibrary.push(new Book("Narnia", "C.S. Lewis", 308, false));
 displayBook();
 
 const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + .open-button");
+const showButton = document.querySelector(".open-button");
 const closeButton = document.querySelector("dialog .close-button");
 
 // "Show the dialog" button opens the dialog modally

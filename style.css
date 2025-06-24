@@ -22,6 +22,8 @@ p {
 
 .lib-tit {
   padding: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
@@ -38,14 +40,20 @@ p {
 .card {
   padding: 0.5em;
   box-shadow: 2px 2px 4px #0000004d;
+  border-radius: 10px;
 }
 
 .card:hover {
-  background-color: rgb(198, 235, 235);
+  outline: 3px solid rgb(55, 166, 231);
 }
 
 .btn-place {
   padding: 1em;
+}
+
+dialog {
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 
 dialog button:first-child {
@@ -59,19 +67,77 @@ form {
 }
 
 .input-text {
+  border-radius: 5px;
   width: 100%;
+  padding: 0.5em;
+}
+
+.btn-area {
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-around;
 }
 
 .toggle-btn {
+  border-radius: 5px;
   padding: 0.5em 1em;
   border: none;
   margin-right: 0.5em;
-  background-color: rgb(184, 184, 184);
+  background-color: rgb(55, 166, 231);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 .delete-btn {
+  border-radius: 5px;
   padding: 0.5em 1em;
   border: none;
-  background-color: tomato;
+  background-color: rgb(196, 69, 47);
   color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.toggle-btn:hover {
+  background-color: rgb(38, 117, 163);
+}
+
+.delete-btn:hover {
+  background-color: rgb(161, 38, 16);
+}
+
+.open-button {
+  border: none;
+  padding: 0.5em 1em;
+  background-color: rgb(105, 160, 24);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.open-button:hover {
+  background-color: rgb(77, 119, 13);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.card {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+.submit-btn {
+  border: none;
+  padding: 0.5em 1em;
+  background-color: rgb(105, 160, 24);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
