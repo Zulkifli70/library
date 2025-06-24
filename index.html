@@ -7,7 +7,39 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="bookshelf"></div>
+    <div class="container">
+      <div class="lib-tit"><h1 class="title">Library</h1></div>
+      <div class="bookshelf"></div>
+
+      <div class="btn-place">
+        <dialog>
+          <button autofocus>Cancel</button>
+          <form method="dialog">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input type="text" />
+            </div>
+            <div class="form-row">
+              <label for="author">Author</label>
+              <input type="text" />
+            </div>
+            <div class="form-row">
+              <label for="page">Page</label>
+              <input type="text" />
+            </div>
+            <div class="form-row">
+              <p>Read status</p>
+              <input type="radio" id="true" value="true" />
+              <label for="true">Read</label>
+              <input type="radio" id="false" value="false" />
+              <label for="false">Not Read</label>
+            </div>
+            <button type="submit">OK</button>
+          </form>
+        </dialog>
+        <button class="btn">Add Book</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

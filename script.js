@@ -46,10 +46,6 @@ function displayBook() {
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPage);
     bookCard.appendChild(bookRead);
-
-    bookCard.addEventListener("mouseenter", () => {
-      bookCard.classList.add("hovered");
-    });
   }
 }
 
@@ -58,3 +54,17 @@ myLibrary.push(new Book("1984", "George Orwell", 328, false));
 myLibrary.push(new Book("Narnia", "C.S. Lewis", 308, false));
 
 displayBook();
+
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});

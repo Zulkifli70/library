@@ -14,9 +14,18 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
   margin: 0;
   padding: 0;
+}
+
+.lib-tit {
+  padding: 1.5em;
+}
+
+.container {
+  padding: 1em;
 }
 
 .bookshelf {
@@ -29,4 +38,22 @@ h6 {
 .card {
   padding: 0.5em;
   box-shadow: 2px 2px 4px #0000004d;
+}
+
+.card:hover {
+  background-color: rgb(198, 235, 235);
+}
+
+.btn-place {
+  padding: 1em;
+}
+
+dialog button:first-child {
+  margin-bottom: 1em;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.5em;
 }
