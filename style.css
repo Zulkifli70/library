@@ -57,3 +57,21 @@ form {
   grid-template-columns: repeat(1, 1fr);
   gap: 0.5em;
 }
+
+.input-text {
+  width: 100%;
+}
+
+.toggle-btn {
+  padding: 0.5em 1em;
+  border: none;
+  margin-right: 0.5em;
+  background-color: rgb(184, 184, 184);
+}
+
+.delete-btn {
+  padding: 0.5em 1em;
+  border: none;
+  background-color: tomato;
+  color: white;
+}

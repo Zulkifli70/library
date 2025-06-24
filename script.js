@@ -39,13 +39,31 @@ function displayBook() {
     bookPage.textContent = `Page: ${book.page}`;
 
     const bookRead = document.createElement("p");
-    bookRead.textContent = `Status: ${book.read ? "Already read" : "Not yet"}`;
+    bookRead.textContent = `Status: ${book.read ? "Already read" : "Unread"}`;
+
+    const toggleRead = document.createElement("button");
+    toggleRead.setAttribute("class", "toggle-btn");
+    toggleRead.textContent = book.read ? "Mark as Unread" : "Mark as Read";
+
+    toggleRead.addEventListener("click", () => {
+      toggleReadStatus(book.id);
+    });
+
+    const deleteBook = document.createElement("button");
+    deleteBook.setAttribute("class", "delete-btn");
+    deleteBook.textContent = "Delete";
+
+    deleteBook.addEventListener("click", () => {
+      deleteBookFromLibrary(book.id);
+    });
 
     bookCard.appendChild(bookName);
     bookCard.appendChild(bookId);
     bookCard.appendChild(bookAuthor);
     bookCard.appendChild(bookPage);
     bookCard.appendChild(bookRead);
+    bookCard.appendChild(toggleRead);
+    bookCard.appendChild(deleteBook);
   }
 }
 
@@ -56,8 +74,8 @@ myLibrary.push(new Book("Narnia", "C.S. Lewis", 308, false));
 displayBook();
 
 const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+const showButton = document.querySelector("dialog + .open-button");
+const closeButton = document.querySelector("dialog .close-button");
 
 // "Show the dialog" button opens the dialog modally
 showButton.addEventListener("click", () => {
@@ -68,3 +86,44 @@ showButton.addEventListener("click", () => {
 closeButton.addEventListener("click", () => {
   dialog.close();
 });
+
+window.onclick = function (event) {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+};
+
+const bookForm = document.querySelector("form");
+
+bookForm.addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.target);
+  const name = formData.get("name");
+  const author = formData.get("author");
+  const page = formData.get("page");
+  const read = formData.get("readStatus") === "read" ? true : false;
+
+  addBookToLibrary(name, author, page, read);
+
+  dialog.close();
+  bookForm.reset();
+}
+
+function toggleReadStatus(bookId) {
+  const book = myLibrary.find((book) => book.id === bookId);
+  if (book) {
+    book.read = !book.read;
+    displayBook();
+  }
+}
+
+function deleteBookFromLibrary(bookId) {
+  const bookIndex = myLibrary.findIndex((book) => book.id === bookId);
+  if (bookIndex !== -1) {
+    myLibrary.splice(bookIndex, 1);
+    displayBook();
+  }
+}
